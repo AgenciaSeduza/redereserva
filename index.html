@@ -86,29 +86,34 @@
     .footer-note{font-size:11px;color:#dda0dd;text-align:center;margin-top:12px;}
   </style>
 
-  <!-- ✅ TIKTOK PIXEL – 3 CONTAS -->
+  <!-- ✅ TIKTOK PIXEL (ÚNICO – CORRETO) -->
   <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;
-      var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-      ttq.setAndDefer=function(o,m){o[m]=function(){o.push([m].concat([].slice.call(arguments)))}}; 
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;
+    var ttq=w[t]=w[t]||[];
+    ttq.methods=[
+      "page","track","identify","instances","debug","on","off","once",
+      "ready","alias","group","enableCookie","disableCookie",
+      "holdConsent","revokeConsent","grantConsent"
+    ];
+    ttq.setAndDefer=function(o,m){
+      o[m]=function(){o.push([m].concat([].slice.call(arguments)))}
+    };
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
 
-      ttq.load=function(id){
-        var s=d.createElement("script");
-        s.async=true;
-        s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+id+"&lib="+t;
-        d.getElementsByTagName("script")[0].parentNode.insertBefore(s,d.getElementsByTagName("script")[0]);
-      };
+    ttq.load=function(id){
+      var s=d.createElement("script");
+      s.async=true;
+      s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+id+"&lib="+t;
+      d.getElementsByTagName("script")[0].parentNode.insertBefore(
+        s,
+        d.getElementsByTagName("script")[0]
+      );
+    };
 
-      /* PIXELS */
-      ttq.load('D4S2ICBC77UE9IMLM8CG'); // CA 1
-      ttq.load('D4S2J3RC77UE9IMLM8DG'); // CA 2
-      ttq.load('D4S2JKRC77U23H9UKP9G'); // CA 3
-
-      ttq.page();
-    }(window, document, 'ttq');
+    ttq.load('D4S2JKRC77U23H9UKP9G');
+    ttq.page();
+  }(window, document, 'ttq');
   </script>
 
 </head>
@@ -140,41 +145,15 @@
   </div>
 </div>
 
-<!-- ✅ EVENTS API MANTIDA (server + client) -->
+<!-- ✅ InitiateCheckout ao clicar -->
 <script>
-  const PIXEL_ID = 'D4MVHL3C77UCJ0N6NA8G';
-  const ACCESS_TOKEN = '34352b17020ab938 2a048d40a1e839b978416dab';
-  const API_ENDPOINT = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
-
-  function generateEventId(name){
-    return name+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
-  }
-
-  async function sendTikTokServerEvent(event, props={}){
-    try{
-      await fetch(API_ENDPOINT,{
-        method:'POST',
-        headers:{'Access-Token':ACCESS_TOKEN,'Content-Type':'application/json'},
-        body:JSON.stringify({
-          pixel_code:PIXEL_ID,
-          event,
-          event_id:generateEventId(event),
-          timestamp:new Date().toISOString(),
-          context:{page:{url:location.href,referrer:document.referrer||''}},
-          properties:{currency:'BRL',value:18.00,...props}
-        })
+  document.getElementById('enter-btn').addEventListener('click', function () {
+    if (window.ttq) {
+      ttq.track('InitiateCheckout', {
+        value: 18,
+        currency: 'BRL'
       });
-    }catch(e){}
-  }
-
-  window.addEventListener('load',()=>{
-    sendTikTokServerEvent('ViewContent');
-    if(window.ttq)ttq.track('ViewContent');
-  });
-
-  document.getElementById('enter-btn').addEventListener('click',()=>{
-    sendTikTokServerEvent('InitiateCheckout',{value:18});
-    if(window.ttq)ttq.track('InitiateCheckout',{value:18,currency:'BRL'});
+    }
   });
 </script>
 
