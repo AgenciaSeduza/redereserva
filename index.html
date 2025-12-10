@@ -1,123 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Obrigado pela Compra!</title>
+  <title>ARQUIVO PROIBIDO</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
-
-  <!-- ✅ TIKTOK PIXEL OFICIAL -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject = t;
-    var ttq = w[t] = w[t] || [];
-    ttq.methods = [
-      "page","track","identify","instances","debug","on","off","once",
-      "ready","alias","group","enableCookie","disableCookie",
-      "holdConsent","revokeConsent","grantConsent"
-    ];
-    ttq.setAndDefer = function(t, e) {
-      t[e] = function() {
-        t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-      }
-    };
-    for (var i = 0; i < ttq.methods.length; i++) {
-      ttq.setAndDefer(ttq, ttq.methods[i]);
-    }
-    ttq.load = function(e) {
-      var s = d.createElement("script");
-      s.async = true;
-      s.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=" + t;
-      d.getElementsByTagName("script")[0].parentNode.insertBefore(
-        s,
-        d.getElementsByTagName("script")[0]
-      );
-    };
-
-    // ✅ PIXEL CORRETO
-    ttq.load('D4S9EB3C77UD1J9U8IFG');
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500;900&display=swap" rel="stylesheet">
 
   <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
     body{
-      font-family:'Inter',sans-serif;
-      background:linear-gradient(135deg,#ff9eb8,#ff6ba8,#ff1f5f);
+      background:#0a0015;
+      color:#fff;
+      font-family:'Roboto',sans-serif;
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
-      color:#fff;
-      padding:20px;
+      padding:15px;
+      background:linear-gradient(135deg,#1a0033,#000428);
     }
-
-    .card{
-      background:rgba(255,255,255,0.15);
-      backdrop-filter:blur(12px);
-      border-radius:26px;
-      padding:34px 22px;
+    .box{
+      width:92%;
       max-width:380px;
+      background:linear-gradient(145deg,#120021,#1c0038);
+      border-radius:20px;
+      overflow:hidden;
+      border:2px solid #8a2be2;
+      box-shadow:0 0 40px rgba(138,43,226,0.4);
+      padding:20px 18px;
+    }
+    .top-img{
       width:100%;
+      border-radius:16px;
+      border:3px solid #ba55d3;
+      box-shadow:0 0 30px rgba(186,85,211,0.5);
     }
-
-    h1{
-      font-size:26px;
+    .header{text-align:center;margin:18px 0 12px;}
+    .big-title{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:42px;
+      letter-spacing:2px;
+      background:linear-gradient(90deg,#ba55d3,#ff69b4,#ff1493);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      line-height:1;
+    }
+    .subtitle{font-size:14px;color:#e0b0ff;margin-top:6px;font-weight:500;}
+    .counter{
+      background:rgba(138,43,226,0.25);
+      padding:12px;
+      border-radius:14px;
+      text-align:center;
+      margin:16px 0;
+      border:1px solid #ba55d3;
+    }
+    .number{font-size:32px;font-weight:900;color:#ff69b4;text-shadow:0 0 12px #ff69b4;}
+    .label{font-size:11px;color:#e0b0ff;letter-spacing:1.5px;margin-top:4px;}
+    .proof{
+      width:100%;
+      border-radius:14px;
+      margin:16px 0;
+      border:2px solid #da70d6;
+      box-shadow:0 0 20px rgba(218,112,214,0.4);
+    }
+    .urgency{text-align:center;font-size:20px;font-weight:900;color:#ff1493;margin:10px 0;}
+    .blink{animation:blink 1.3s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+    .access-btn{
+      display:block;
+      background:linear-gradient(45deg,#ff1493,#ff69b4,#ba55d3);
+      color:#fff;
+      font-size:22px;
       font-weight:900;
-      margin-bottom:10px;
+      text-decoration:none;
+      text-align:center;
+      padding:18px;
+      border-radius:50px;
+      margin:20px auto 12px;
+      width:90%;
     }
-
-    p{
-      font-size:16px;
-      opacity:0.95;
-      margin-bottom:20px;
-    }
-
-    .loader{
-      border:4px solid rgba(255,255,255,0.3);
-      border-top:4px solid #fff;
-      border-radius:50%;
-      width:42px;
-      height:42px;
-      margin:0 auto;
-      animation:spin 1s linear infinite;
-    }
-
-    @keyframes spin{
-      0%{transform:rotate(0deg);}
-      100%{transform:rotate(360deg);}
-    }
+    .footer-note{font-size:11px;color:#dda0dd;text-align:center;margin-top:12px;}
   </style>
+
+  <!-- ✅ TIKTOK PIXEL (CORRETO) -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;
+    var ttq=w[t]=w[t]||[];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments)))}}; 
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.load=function(e){
+      var s=d.createElement("script");
+      s.async=true;
+      s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;
+      d.getElementsByTagName("script")[0].parentNode.insertBefore(s,d.getElementsByTagName("script")[0]);
+    };
+
+    // ✅ PIXEL CERTO
+    ttq.load('D4S9EB3C77UD1J9U8IFG');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>Compra confirmada ✅</h1>
-    <p>Estamos liberando seu acesso.<br>Aguarde…</p>
-    <div class="loader"></div>
+<div class="box">
+  <img src="banner.jpg" class="top-img">
+
+  <div class="header">
+    <div class="big-title">ARQUIVO<br>PROIBIDO</div>
+    <div class="subtitle">O material que ninguém quer que você veja</div>
   </div>
 
-  <!-- ✅ PURCHASE COM DELAY SEGURO -->
-  <script>
-    setTimeout(function () {
-      if (window.ttq) {
-        ttq.track('Purchase', {
-          value: 18.00,
-          currency: 'BRL',
-          content_id: 'VIP_REDE_SECRETA',
-          content_type: 'product'
-        });
-      }
-    }, 900);
+  <div class="counter">
+    <div class="number">+27.400</div>
+    <div class="label">ACESSOS LIBERADOS HOJE</div>
+  </div>
 
-    // ✅ REDIRECIONAMENTO
-    setTimeout(function(){
-      window.location.href = "https://t.me/+I-pcyWQm0khmYzYx";
-    }, 2500);
-  </script>
+  <img src="foto.jpg" class="proof">
+
+  <div class="urgency"><span class="blink">ÚLTIMAS VAGAS DO DIA</span></div>
+
+  <a id="enter-btn" class="access-btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
+    QUERO ENTRAR AGORA
+  </a>
+
+  <div class="footer-note">
+    CONTEÚDO RESTRITO • +18 • ACESSO IMEDIATO
+  </div>
+</div>
+
+<!-- ✅ ViewContent + InitiateCheckout -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.ttq) {
+      ttq.track('ViewContent', {
+        content_id: 'ARQUIVO_PROIBIDO_VIP',
+        content_type: 'product'
+      });
+    }
+  });
+
+  document.getElementById('enter-btn').addEventListener('click', function () {
+    if (window.ttq) {
+      ttq.track('InitiateCheckout', {
+        value: 18,
+        currency: 'BRL',
+        content_id: 'ARQUIVO_PROIBIDO_VIP',
+        content_type: 'product'
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
